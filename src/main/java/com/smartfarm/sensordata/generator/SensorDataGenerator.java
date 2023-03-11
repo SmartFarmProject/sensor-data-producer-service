@@ -51,6 +51,7 @@ public class SensorDataGenerator implements CommandLineRunner {
                     .lightIntensity(random.nextInt(900 - 50) + 50)
                     .batteryLevel(random.nextInt(100 - 1) + 1)
                     .signalStrength(random.nextInt(100 - 30) + 30)
+                    .unit("cd")
                     .build();
             events.add(event);
         }
@@ -66,6 +67,7 @@ public class SensorDataGenerator implements CommandLineRunner {
                     .isCalibrated(random.nextBoolean())
                     .batteryLevel(random.nextInt(100 - 1) + 1)
                     .signalStrength(random.nextInt(100 - 30) + 30)
+                    .unit("ph")
                     .build();
             events.add(event);
         }
@@ -81,6 +83,7 @@ public class SensorDataGenerator implements CommandLineRunner {
                     .humidity(random.nextInt(90 - 5) + 5)
                     .signalStrength(random.nextInt(100 - 30) + 30)
                     .firmwareVersion(firmwareVersions.get(random.nextInt(3)))
+                    .unit("%")
                     .build();
             events.add(event);
         }
@@ -94,6 +97,7 @@ public class SensorDataGenerator implements CommandLineRunner {
                     .id(TEMPERATURE_SENSOR_ID_LIST.get(random.nextInt(20)))
                     .temperature(random.nextInt(60 - 10) + 10)
                     .batteryLevel(random.nextInt(100 - 1) + 1)
+                    .unit("c")
                     .build();
             events.add(event);
         }
@@ -128,12 +132,12 @@ public class SensorDataGenerator implements CommandLineRunner {
                 sensorDataProducer.sendMessage(phSoilSensorEvent);
                 Thread.sleep(random.nextInt(maxDelayTime - minDelayTime) + maxDelayTime);
 
-                SoilHumiditySensor soilHumiditySensorEvent = soilHumiditySensors.get(0);
+                SoilHumiditySensor soilHumiditySensorEvent = soilHumiditySensors.get(i);
                 soilHumiditySensorEvent.setTimestamp(new Date());
                 sensorDataProducer.sendMessage(soilHumiditySensorEvent);
                 Thread.sleep(random.nextInt(maxDelayTime - minDelayTime) + maxDelayTime);
 
-                TemperatureSensor temperatureSensorEvent = temperatureSensors.get(0);
+                TemperatureSensor temperatureSensorEvent = temperatureSensors.get(i);
                 temperatureSensorEvent.setTimestamp(new Date());
                 sensorDataProducer.sendMessage(temperatureSensorEvent);
                 Thread.sleep(random.nextInt(maxDelayTime - minDelayTime) + maxDelayTime);

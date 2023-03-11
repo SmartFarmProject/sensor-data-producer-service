@@ -21,4 +21,5 @@ public class SoilHumiditySensor implements Serializable {
     private String firmwareVersion;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone="MST")
     private Date timestamp;
+    private String unit;
 }

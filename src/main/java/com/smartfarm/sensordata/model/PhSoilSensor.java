@@ -22,4 +22,5 @@ public class PhSoilSensor implements Serializable {
     private int signalStrength;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone="MST")
     private Date timestamp;
+    private String unit;
 }
