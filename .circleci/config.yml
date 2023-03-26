@@ -5,6 +5,7 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 orbs:
+  maven: circleci/maven@1.1.0
   docker: circleci/docker@1.0.0
 jobs:
   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
@@ -15,6 +16,9 @@ jobs:
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     docker:
       - image: cimg/openjdk:17.0
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
@@ -29,12 +33,12 @@ jobs:
           name: Test
           command: mvn test
       # Build docker image
-      - run:
-          name: Print Docker Hub username
-          command: echo $DOCKERHUB_USERNAME
-      - run:
-          name: Login to Docker Hub
-          command: echo "$DOCKERHUB_PASSWORD" | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
+#      - run:
+#          name: Print Docker Hub username
+#          command: echo $DOCKERHUB_USERNAME
+#      - run:
+#          name: Login to Docker Hub
+#          command: echo "$DOCKERHUB_PASSWORD" | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
       - run:
           name: Build Docker image
           command: |
