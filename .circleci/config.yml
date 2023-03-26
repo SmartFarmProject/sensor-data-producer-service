@@ -30,9 +30,11 @@ jobs:
           command: mvn test
       # Build docker image
       - run:
-          name: Docker
+          name: Login Docker
+          command: echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run:
+          name: Build Docker image
           command: |
-            docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
             mvn docker:build
 
 # Invoke jobs via workflows
