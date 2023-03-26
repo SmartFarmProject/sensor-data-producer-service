@@ -19,6 +19,8 @@ jobs:
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
+    environment:
+      DOCKER_HOST: tcp://localhost:2375
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
@@ -39,6 +41,8 @@ jobs:
 #      - run:
 #          name: Login to Docker Hub
 #          command: echo "$DOCKERHUB_PASSWORD" | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
+      - run:
+          command: sudo systemctl status docker
       - run:
           name: Build Docker image
           command: |
