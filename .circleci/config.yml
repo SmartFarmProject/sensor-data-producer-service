@@ -10,9 +10,7 @@ jobs:
       - run:
           name: check dir
           command: |
-            ls
-            cd src
-            ls
+            echo "${PATH//:/$'\n'}"
       - run: cd src
       - run: ls
       - run:
