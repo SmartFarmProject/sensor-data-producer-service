@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: cimg/openjdk:17.0
         auth:
-          username: $DOCKER_USERNAME
+          username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
