@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run: mvn clean install
-      - run: pwd
+      - run: ls
       - run:
           name: Build Docker Image
           command: |
