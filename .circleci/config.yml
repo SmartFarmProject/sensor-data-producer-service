@@ -12,7 +12,11 @@ jobs:
           command: |
             echo "${PATH//:/$'\n'}"
       - run: pwd
-      - run: ls
+      - run:
+          command: |
+            ls
+            cd scr
+            ls
       - run:
           name: Build Docker Image
           command: |
