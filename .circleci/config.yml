@@ -5,8 +5,8 @@ jobs:
     docker:
       - image: cimg/openjdk:17.0
         auth:
-          username: $DOCKERHUB_USERNAME
-          password: $DOCKERHUB_PASSWORD
+          username: ${DOCKERHUB_USERNAME}
+          password: ${DOCKERHUB_PASSWORD}
     steps:
       - checkout
       - setup_remote_docker
@@ -22,6 +22,8 @@ jobs:
           name: Build Docker Image
           command: |
             mvn docker:build
+      - run:
+          command: echo ${MY_VARIABLE}
       - run:
           name: Check Docker Credentials
           command: |
