@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/project
     docker:
-      - image: circleci/openjdk:17-jdk-buster
+      - image: cimg/openjdk:17.0
     steps:
       - checkout
       - run: mvn clean install
@@ -11,7 +11,7 @@ jobs:
           name: check dir
           command: |
             echo "${PATH//:/$'\n'}"
-      - run: cd src
+      - run: pwd
       - run: ls
       - run:
           name: Build Docker Image
