@@ -15,12 +15,12 @@ jobs:
       - run:
           command: |
             ls
-            cd src
+            cd src/main/docker
             ls
       - run:
           name: Build Docker Image
           command: |
-            docker build . -f ~/project/src/main/docker/Dockerfile
+            docker build . -f src/main/docker/Dockerfile
       - run:
           name: Login to Docker Registry
           command: |
