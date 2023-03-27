@@ -11,10 +11,7 @@ jobs:
       - run:
           name: Build Docker Image
           command: |
-            docker build \
-              --tag sensor-data-producer-service:latest \
-              --build-arg JAR_FILE=target/sensor-data-producer-service-0.0.1-SNAPSHOT.jar \
-              .
+            docker build . -f /src/main/docker/Dockerfile
       - run:
           name: Login to Docker Registry
           command: |
