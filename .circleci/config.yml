@@ -13,16 +13,16 @@ jobs:
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     docker:
       - image: cimg/openjdk:17.0
-        auth:
-          username: $DOCKERHUB_USERNAME
-          password: $DOCKERHUB_PASSWORD
+#        auth:
+#          username: $DOCKERHUB_USERNAME
+#          password: $DOCKERHUB_PASSWORD
     environment:
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       # Checkout the code as the first step.
       - checkout
-      - setup_remote_docker
+#      - setup_remote_docker
       # Use mvn clean and package as the standard maven build phase
       - run:
           name: Build
@@ -38,12 +38,12 @@ jobs:
 #      - run:
 #          name: Login to Docker Hub
 #          command: echo "$DOCKERHUB_PASSWORD" | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
-      - run:
-          command: sudo systemctl status docker
-      - run:
-          name: Build Docker image
-          command: |
-            mvn docker:build
+#      - run:
+#          command: sudo systemctl status docker
+#      - run:
+#          name: Build Docker image
+#          command: |
+#            mvn docker:build
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
