@@ -36,7 +36,7 @@ jobs:
       - run:
           name: Push Docker Image
           command: |
-            mvn -Ddocker.username=$DOCKERHUB_USERNAME -Ddocker.password=$DOCKERHUB_PASSWORD docker:push
+            mvn docker:push -DdockerUser=$DOCKERHUB_USERNAME -DdockerPassword=$DOCKERHUB_PASSWORD
 #      - run:
 #          name: Push Docker Image
 #          command: |
