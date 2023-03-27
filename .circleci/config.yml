@@ -19,19 +19,13 @@ jobs:
             - ~/.m2
           key: my-cache-{{ .Branch }}-{{ checksum "pom.xml" }}
       - run:
-          name: check dir
-          command: |
-            echo "${PATH//:/$'\n'}"
-      - run: pwd
-      - run:
-          command: |
-            ls
-            cd src/main/docker
-            ls
-      - run:
           name: Build Docker Image
           command: |
             mvn docker:build
+      - run:
+          name: Check Docker Credentials
+          command: |
+            docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
       - run:
           name: Push Docker Image
           command: |
