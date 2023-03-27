@@ -8,10 +8,11 @@ jobs:
       - checkout
       - run: mvn clean install
       - run:
-        command: |
-          ls
-          cd src
-          ls
+          name: check dir
+          command: |
+            ls
+            cd src
+            ls
       - run: cd src
       - run: ls
       - run:
