@@ -117,8 +117,8 @@
 					</images>
 					<authConfig>
 						<push>
-							<username>${dockerUser}</username>
-							<password>${dockerPassword}</password>
+							<username>${env.DOCKERHUB_USERNAME}</username>
+							<password>${env.DOCKERHUB_PASSWORD}</password>
 						</push>
 					</authConfig>
 				</configuration>
