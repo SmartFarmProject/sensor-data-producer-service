@@ -4,6 +4,9 @@ jobs:
     working_directory: ~/project
     docker:
       - image: cimg/openjdk:17.0
+        auth:
+          username: $DOCKER_USERNAME
+          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - setup_remote_docker
@@ -26,10 +29,10 @@ jobs:
 #          name: Build Docker Image
 #          command: |
 #            docker build . -f src/main/docker/DockerFile
-      - run:
-          name: Login to Docker Registry
-          command: |
-            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+#      - run:
+#          name: Login to Docker Registry
+#          command: |
+#            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       - run:
           name: Push Docker Image
           command: |
