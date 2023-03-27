@@ -11,7 +11,7 @@
 	<groupId>com.smartfarm</groupId>
 	<artifactId>sensor-data-producer-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sensor-data-service</name>
+	<name>sensor-data-producer-service</name>
 	<description>Smart Farm Sensor Data Producer Service</description>
 	<properties>
 		<java.version>17</java.version>
