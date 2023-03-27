@@ -20,8 +20,6 @@
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<docker.image.prefix>thebestsmartfarm</docker.image.prefix>
 		<docker.image.name>${project.artifactId}</docker.image.name>
-		<dockerUser>user</dockerUser>
-		<dockerPassword>password</dockerPassword>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -115,13 +113,6 @@
 							</build>
 						</image>
 					</images>
-<!--					<registry>docker.io</registry>-->
-<!--					<authConfig>-->
-<!--						<push>-->
-<!--							<username>${env.DOCKERHUB_USERNAME}</username>-->
-<!--							<password>${env.DOCKERHUB_PASSWORD}</password>-->
-<!--						</push>-->
-<!--					</authConfig>-->
 				</configuration>
 			</plugin>
 		</plugins>
