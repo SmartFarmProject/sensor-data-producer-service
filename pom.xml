@@ -115,13 +115,13 @@
 							</build>
 						</image>
 					</images>
-					<registry>docker.io</registry>
-					<authConfig>
-						<push>
-							<username>${env.DOCKERHUB_USERNAME}</username>
-							<password>${env.DOCKERHUB_PASSWORD}</password>
-						</push>
-					</authConfig>
+<!--					<registry>docker.io</registry>-->
+<!--					<authConfig>-->
+<!--						<push>-->
+<!--							<username>${env.DOCKERHUB_USERNAME}</username>-->
+<!--							<password>${env.DOCKERHUB_PASSWORD}</password>-->
+<!--						</push>-->
+<!--					</authConfig>-->
 				</configuration>
 			</plugin>
 		</plugins>

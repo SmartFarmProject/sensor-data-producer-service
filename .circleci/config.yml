@@ -29,18 +29,6 @@ jobs:
           command: |
             mvn docker:build
       - run:
-          command: echo ${MY_VARIABLE}
-      - run:
-          name: Check Docker Credentials
-          command: |
-            docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
-      - run:
           name: Push Docker Image
           command: |
             mvn -e docker:push
-#            mvn docker:push -DdockerUser=${DOCKERHUB_USERNAME} -DdockerPassword=${DOCKERHUB_PASSWORD}
-#      - run:
-#          name: Push Docker Image
-#          command: |
-#            docker tag sensor-data-producer-service:latest thebestsmartfarm/sensor-data-producer-service:latest
-#            docker push thebestsmartfarm/sensor-data-producer-service:latest
