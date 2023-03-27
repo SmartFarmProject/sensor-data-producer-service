@@ -8,10 +8,12 @@ jobs:
       - checkout
       - run: mvn clean install
       - run: ls
+      - run: cd src
+      - run: ls
       - run:
           name: Build Docker Image
           command: |
-            docker build . -f /src/main/docker/Dockerfile
+            docker build . -f ~/project/src/main/docker/Dockerfile
       - run:
           name: Login to Docker Registry
           command: |
