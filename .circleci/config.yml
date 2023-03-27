@@ -29,14 +29,14 @@ jobs:
 #          name: Build Docker Image
 #          command: |
 #            docker build . -f src/main/docker/DockerFile
-      - run:
-          name: Login to Docker Registry
-          command: |
-            echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+#      - run:
+#          name: Login to Docker Registry
+#          command: |
+#            echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
       - run:
           name: Push Docker Image
           command: |
-            mvn docker:push
+            mvn -Ddocker.username=$DOCKERHUB_USERNAME -Ddocker.password=$DOCKERHUB_PASSWORD docker:push
 #      - run:
 #          name: Push Docker Image
 #          command: |
