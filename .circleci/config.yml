@@ -1,6 +1,7 @@
 version: 2.1
 jobs:
   build:
+    context: smartfarm
     working_directory: ~/project
     docker:
       - image: cimg/openjdk:17.0
