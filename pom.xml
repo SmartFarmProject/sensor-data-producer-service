@@ -115,6 +115,7 @@
 							</build>
 						</image>
 					</images>
+					<registry>docker.io</registry>
 					<authConfig>
 						<push>
 							<username>${env.DOCKERHUB_USERNAME}</username>
