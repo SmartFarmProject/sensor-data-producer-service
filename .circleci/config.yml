@@ -10,9 +10,9 @@ jobs:
     working_directory: ~/project
     docker:
       - image: cimg/openjdk:17.0
-        auth:
-          username: ${DOCKERHUB_USERNAME}
-          password: ${DOCKERHUB_PASSWORD}
+#        auth:
+#          username: ${DOCKERHUB_USERNAME}
+#          password: ${DOCKERHUB_PASSWORD}
     steps:
       - checkout
       - setup_remote_docker
