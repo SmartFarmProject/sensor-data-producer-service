@@ -10,7 +10,14 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+      - restore_cache:
+          keys:
+            - my-cache-{{ .Branch }}-{{ checksum "pom.xml" }}
       - run: mvn clean install
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: my-cache-{{ .Branch }}-{{ checksum "pom.xml" }}
       - run:
           name: check dir
           command: |
