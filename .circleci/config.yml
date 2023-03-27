@@ -29,6 +29,9 @@ jobs:
           command: |
             mvn docker:build
       - run:
+          name: Login to Docker Hub
+          command: echo "$DOCKERHUB_PASSWORD" | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
+      - run:
           name: Push Docker Image
           command: |
-            mvn -e docker:push
+            mvn docker:push
