@@ -21,13 +21,17 @@ jobs:
       - run:
           name: Build Docker Image
           command: |
-            docker build . -f src/main/docker/Dockerfile
-      - run:
-          name: Login to Docker Registry
-          command: |
-            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      - run:
-          name: Push Docker Image
-          command: |
-            docker tag sensor-data-producer-service:latest thebestsmartfarm/sensor-data-producer-service:latest
-            docker push thebestsmartfarm/sensor-data-producer-service:latest
+            mvn docker:build
+#      - run:
+#          name: Build Docker Image
+#          command: |
+#            docker build . -f src/main/docker/Dockerfile
+#      - run:
+#          name: Login to Docker Registry
+#          command: |
+#            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+#      - run:
+#          name: Push Docker Image
+#          command: |
+#            docker tag sensor-data-producer-service:latest thebestsmartfarm/sensor-data-producer-service:latest
+#            docker push thebestsmartfarm/sensor-data-producer-service:latest
