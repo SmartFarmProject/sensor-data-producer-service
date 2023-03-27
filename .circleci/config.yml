@@ -1,7 +1,11 @@
 version: 2.1
+workflows:
+  build-and-test:
+    jobs:
+      - build:
+          context: smartfarm
 jobs:
-  build:
-    context: smartfarm
+  build-and-test:
     working_directory: ~/project
     docker:
       - image: cimg/openjdk:17.0
