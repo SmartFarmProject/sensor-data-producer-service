@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sensor-data-producer
+  labels:
+    app: sensor-data-producer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sensor-data-producer
+  template:
+    metadata:
+      labels:
+        app: sensor-data-producer
+    spec:
+      containers:
+        - name: sensor-data-producer-service
+          image: thebestsmartfarm/sensor-data-producer-service
+          env:
+            - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
+              value: "kafka-service:9092"
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sensor-data-producer
+spec:
+  selector:
+    app: sensor-data-producer
+  ports:
+    - protocol: TCP
+      port: 9092
+#      targetPort:
